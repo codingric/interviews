@@ -13,7 +13,7 @@ ADD . /app/
 RUN env ${opts} go build -o golang-test .
 
 # Use clean alpine to keep smallest possible
-FROM alpine
+FROM alpine:3.14
 
 # Moving up for caching
 ENTRYPOINT ["/app/golang-test"]
@@ -21,7 +21,8 @@ EXPOSE 8000
 
 # Single layer
 RUN apk update --no-cache \
-    &&  apk add git \
+    && apk --no-cache add git \
+    && apk --no-cache upgrade openssl \
     && mkdir /app
 
 

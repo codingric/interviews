@@ -36,3 +36,6 @@ deploy:
 tests:
 	docker-compose run tests \
 	&& docker-compose down
+
+scan:
+	docker-compose run scan -q image --exit-code 1 -s HIGH codingric/catch-test:${COMMIT_SHA}

@@ -28,6 +28,9 @@ jobs:
       - name: Distribute image
         run: make distribute
 
+      - name: Static scans
+        run: make scan
+
       - uses: azure/k8s-set-context@v1
         with:
           method: kubeconfig

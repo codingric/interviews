@@ -15,3 +15,6 @@ services:
     image: codingric/catch-test
     ports:
       - "8000:8000"
+
+  scan:
+    image: ghcr.io/aquasecurity/trivy:latest
