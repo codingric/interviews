@@ -14,7 +14,7 @@ RUN printenv \
     && env ${opts} go build -o golang-test .
 
 # Use clean alpine to keep smallest possible
-FROM alpine
+FROM alpine:3.19.1
 
 # Single layer
 RUN apk update --no-cache \
